@@ -1,0 +1,92 @@
+[
+  {
+    "title": "MacBook Pro 14",
+    "category": "Ultrabook",
+    "brand": "Apple",
+    "price": 1999,
+    "id": 1,
+    "createdAt": "2025-05-31T14:42:48.818Z",
+    "updatedAt": "2025-05-31T14:42:48.818Z"
+  },
+  {
+    "title": "Dell XPS 13",
+    "category": "Ultrabook",
+    "brand": "Dell",
+    "price": 1399,
+    "id": 2,
+    "createdAt": "2025-05-31T14:45:34.349Z",
+    "updatedAt": "2025-05-31T14:45:34.349Z"
+  },
+  {
+    "title": "HP Spectre x360",
+    "category": "Convertible",
+    "brand": "HP",
+    "price": 1249,
+    "id": 3,
+    "createdAt": "2025-05-31T14:45:55.233Z",
+    "updatedAt": "2025-05-31T14:45:55.233Z"
+  },
+  {
+    "title": "Lenovo ThinkPad X1 Carbon",
+    "category": "Business",
+    "brand": "Lenovo",
+    "price": 1599,
+    "id": 4,
+    "createdAt": "2025-05-31T14:46:16.701Z",
+    "updatedAt": "2025-05-31T14:46:16.701Z"
+  },
+  {
+    "title": "ASUS ROG Zephyrus G14",
+    "category": "Gaming",
+    "brand": "ASUS",
+    "price": 1699,
+    "id": 5,
+    "createdAt": "2025-05-31T14:46:29.025Z",
+    "updatedAt": "2025-05-31T14:46:29.025Z"
+  },
+  {
+    "title": "Acer Swift 3",
+    "category": "Budget",
+    "brand": "Acer",
+    "price": 699,
+    "id": 6,
+    "createdAt": "2025-05-31T14:46:37.600Z",
+    "updatedAt": "2025-05-31T14:46:37.600Z"
+  },
+  {
+    "title": "Microsoft Surface Laptop 5",
+    "category": "Ultrabook",
+    "brand": "Microsoft",
+    "price": 1299,
+    "id": 7,
+    "createdAt": "2025-05-31T14:46:49.227Z",
+    "updatedAt": "2025-05-31T14:46:49.227Z"
+  },
+  {
+    "title": "MSI GE76 Raider",
+    "category": "Gaming",
+    "brand": "MSI",
+    "price": 2199,
+    "id": 8,
+    "createdAt": "2025-05-31T14:46:57.811Z",
+    "updatedAt": "2025-05-31T14:46:57.811Z"
+  },
+  {
+    "title": "LG Gram 17",
+    "category": "Ultrabook",
+    "brand": "LG",
+    "price": 1499,
+    "id": 9,
+    "createdAt": "2025-05-31T14:47:07.412Z",
+    "updatedAt": "2025-05-31T14:47:07.412Z"
+  },
+  {
+    "title": "Razer Blade 15",
+    "category": "Gaming",
+    "brand": "Razer",
+    "price": 1999,
+    "id": 10,
+    "createdAt": "2025-05-31T14:47:16.556Z",
+    "updatedAt": "2025-05-31T14:53:52.925Z"
+  }
+]
