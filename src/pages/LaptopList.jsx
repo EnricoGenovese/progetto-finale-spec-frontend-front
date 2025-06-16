@@ -36,10 +36,14 @@ export default function LaptopList() {
 
   const sortIcon = sortOrder === 1 ? '↓' : '↑'
 
-  const categories = useMemo(() => {
-    const all = laptops.map(l => l.category);
-    return ["Tutte", ...Array.from(new Set(all))];
-  }, [laptops]);
+  const categoriesMap = laptops.map(l => l.category);
+
+  let categories = ['Tutte'];
+  categoriesMap.forEach((category) => {
+    if (!categories.includes(category)) {
+      categories.push(category)
+    }
+  });
 
   const sortedAndFilteredLaptops = useMemo(() => {
     const getSortBy = (sortBy, a, b) => {
@@ -71,14 +75,13 @@ export default function LaptopList() {
   return (
     <>
       <div className="searchbar">
-        <label htmlFor="search">Cerca per nome</label>
-        <br />
+        <label htmlFor="search" style={{ marginRight: '2px' }}>Cerca per nome:</label>
         <input
           type="text"
           name="search"
           onChange={e => handleSearch(e.target.value)}
         />
-        <label htmlFor="category" style={{ marginLeft: '8px' }}>Filtra per categoria: </label>
+        <label htmlFor="category" style={{ marginLeft: '8px', marginRight: '2px' }}>Filtra per categoria: </label>
         <select
           id="category"
           value={selectedCategory}
@@ -97,7 +100,7 @@ export default function LaptopList() {
       <button onClick={openFavoritesModal}>
         Visualizza i preferiti
       </button>
-      {sortedAndFilteredLaptops ?
+      {sortedAndFilteredLaptops.length > 0 ?
         <table>
           <thead>
             <tr>

@@ -32,7 +32,7 @@ export default function ComparisonModal({ compareList, show, onClose }) {
         case "price":
           return a.price - b.price
         case "brand":
-          return a.brand.localeCompare(b.brand)
+          return a.brand.localeCompare(b.brand);
         default:
           return 0;
       }
