@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useContext, useMemo, useState, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import LaptopRow from "../components/LaptopRow";
 import FavoritesModal from "../components/FavoritesModal";
@@ -10,12 +10,13 @@ export default function LaptopList() {
   const {
     laptops,
     loading,
-    favorites, addToFavorites,
+    favorites,
     compareList, showCompareModal, openCompareModal, closeCompareModal,
     showFavoritesModal, openFavoritesModal, closeFavoritesModal
   } = useContext(GlobalContext);
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Tutte");
   const [sortBy, setSortBy] = useState("title");
   const [sortOrder, setSortOrder] = useState(1);
 
@@ -35,6 +36,10 @@ export default function LaptopList() {
 
   const sortIcon = sortOrder === 1 ? '↓' : '↑'
 
+  const categories = useMemo(() => {
+    const all = laptops.map(l => l.category);
+    return ["Tutte", ...Array.from(new Set(all))];
+  }, [laptops]);
 
   const sortedAndFilteredLaptops = useMemo(() => {
     const getSortBy = (sortBy, a, b) => {
@@ -48,12 +53,14 @@ export default function LaptopList() {
       }
     };
     return [...laptops]
-      .filter((laptop) =>
-        laptop.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+      .filter(laptop =>
+        laptop.title.toLowerCase().trim().includes(searchQuery.toLowerCase().trim())
+      )
+      .filter(laptop =>
+        selectedCategory === "Tutte" ? true : laptop.category === selectedCategory
       )
       .sort((a, b) => getSortBy(sortBy, a, b) * sortOrder);
-  }, [laptops, sortBy, sortOrder, searchQuery]);
-
+  }, [laptops, sortBy, sortOrder, searchQuery, selectedCategory]);
 
 
   if (loading) {
@@ -71,6 +78,16 @@ export default function LaptopList() {
           name="search"
           onChange={e => handleSearch(e.target.value)}
         />
+        <label htmlFor="category" style={{ marginLeft: '8px' }}>Filtra per categoria: </label>
+        <select
+          id="category"
+          value={selectedCategory}
+          onChange={e => setSelectedCategory(e.target.value)}
+        >
+          {categories.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
       </div>
 
       <h2>Lista dei laptop</h2>
@@ -80,7 +97,7 @@ export default function LaptopList() {
       <button onClick={openFavoritesModal}>
         Visualizza i preferiti
       </button>
-      {sortedAndFilteredLaptops.length > 1 ?
+      {sortedAndFilteredLaptops ?
         <table>
           <thead>
             <tr>

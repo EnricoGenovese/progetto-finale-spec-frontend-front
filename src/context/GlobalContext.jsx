@@ -5,9 +5,9 @@ export const GlobalContext = createContext()
 
 export function GlobalProvider({ children }) {
 
-    
-    const contextLaptop = useLaptop()
 
+    const contextLaptop = useLaptop()
+        
     return (
         <GlobalContext.Provider value={{ ...contextLaptop }}>
             {children}

@@ -10,7 +10,6 @@ export default function ComparisonModal({ compareList, show, onClose }) {
   const [sortOrder, setSortOrder] = useState(1);
 
   useEffect(() => {
-    // if (!show) return;
     setLoading(true);
     Promise.all(compareList.map(laptop => getLaptop(laptop.id)))
       .then(results => {
@@ -33,7 +32,7 @@ export default function ComparisonModal({ compareList, show, onClose }) {
         case "price":
           return a.price - b.price
         case "brand":
-          return a.brand.localeCompare(b.compare)
+          return a.brand.localeCompare(b.brand)
         default:
           return 0;
       }
@@ -52,7 +51,7 @@ export default function ComparisonModal({ compareList, show, onClose }) {
 
   const sortIcon = sortOrder === 1 ? '↓' : '↑';
 
-  // if (!show) return null;
+
   if (loading) return <div>Caricamento...</div>;
 
   if (compareList.length <= 1) {

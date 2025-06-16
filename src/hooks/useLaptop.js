@@ -18,7 +18,7 @@ export default function useLaptop() {
                 const data = await res.json();
                 setLaptops(data);
             } catch (error) {
-                console.error(error);
+                 
             } finally {
                 setLoading(false)
             }

@@ -9,9 +9,6 @@ export default function LaptopDetails() {
   const [laptop, setLaptop] = useState(null);
   const [localLoading, setLocalLoading] = useState(true);
 
-
-
-
   useEffect(() => {
     const fetchLaptop = async () => {
       setLocalLoading(true);
